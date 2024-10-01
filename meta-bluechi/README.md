@@ -8,10 +8,10 @@ Dependencies
 ============
 
   URI: git://git.yoctoproject.org/meta-virtualization
-  branch: kirkstone
+  branch: scarthgap
 
   URI: git://git.openembedded.org/openembedded-core
-  branch: kirkstone
+  branch: scarthgap
 
 Patches
 =======
