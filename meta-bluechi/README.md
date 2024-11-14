@@ -11,7 +11,7 @@ Dependencies
   branch: kirkstone
 
   URI: git://git.openembedded.org/openembedded-core
-  branch: kirkstone
+  branch: kirksone
 
 Patches
 =======
