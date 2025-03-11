@@ -2,7 +2,7 @@ header:
   version: 14
 machine: generic
 local_conf_header:
-  default: | 
+  default: |
     INHERIT += "extrausers"
     # user setup
     EXTRA_USERS_PARAMS = "usermod -p '' root;"
@@ -16,6 +16,8 @@ local_conf_header:
     VIRTUAL-RUNTIME_init_manager = "systemd"
     VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
     IMAGE_INSTALL:append = " podman bluechi"
+    # bluechi
+    PREFERRED_VERSION_bluechi = "0.10.0"
 repos:
   poky: 
     url: https://git.yoctoproject.org/git/poky
