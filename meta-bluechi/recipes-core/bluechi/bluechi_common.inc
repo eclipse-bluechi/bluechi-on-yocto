@@ -26,20 +26,14 @@ SRC_URI += "file://bluechi-run-dir.conf"
 inherit pkgconfig cmake meson systemd overlayfs
 
 do_install:append() {
-    if [ -d ${WORKDIR}/sources-unpack ]; then
-        CFG_DIR=${WORKDIR}/sources-unpack
-    else
-        CFG_DIR=${WORKDIR}
-    fi
-    
     # copy bluechi config files (controller + local agent)
-    install -D ${CFG_DIR}/bluechi-controller.conf ${D}/etc/bluechi/controller.conf.d/00-default.conf
-    install -D ${CFG_DIR}/bluechi-agent.conf ${D}/etc/bluechi/agent.conf.d/00-default.conf
+    install -D ${UNPACKDIR}/bluechi-controller.conf ${D}/etc/bluechi/controller.conf.d/00-default.conf
+    install -D ${UNPACKDIR}/bluechi-agent.conf ${D}/etc/bluechi/agent.conf.d/00-default.conf
     
     # setup /run/bluechi via systemd
     rmdir ${D}/run/bluechi
     rmdir ${D}/run
-    install -D ${CFG_DIR}/bluechi-run-dir.conf  ${D}${libdir}/tmpfiles.d/bluechi-run-dir.conf
+    install -D ${UNPACKDIR}/bluechi-run-dir.conf  ${D}${libdir}/tmpfiles.d/bluechi-run-dir.conf
 }
 
 REQUIRED_DISTRO_FEATURES += "systemd"
